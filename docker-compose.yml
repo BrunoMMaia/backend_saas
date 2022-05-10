@@ -1,0 +1,23 @@
+version: '3'
+
+services:
+  db_postgres:
+    container_name: security-database-postgres
+    image: postgres
+    volumes:
+      - security-data:/data
+    ports:
+      - 5433:${DB_POSTGRES_PORT}
+    networks:
+      - security-network
+    environment:
+      - POSTGRES_DB=${DB_POSTGRES_DATABASE}
+      - POSTGRES_USER=${DB_POSTGRES_USERNAME}
+      - POSTGRES_PASSWORD=${DB_POSTGRES_PASSWORD}
+
+volumes:
+  security-data:
+
+networks:
+  security-network:
+    driver: bridge

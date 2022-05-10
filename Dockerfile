@@ -1,0 +1,28 @@
+FROM node:14
+
+ARG NODE_ENV=dev
+
+ENV NODE_ENV=$NODE_ENV
+ENV PORT=3333
+ENV APP_SECRET=2b7c829de79e9c21843599157a2e6f2e
+ENV APP_API_URL=http://localhost:3333
+ENV APP_WEB_URL=https://secintel.azurewebsites.net
+ENV APP_PORT=3333
+ENV DB_POSTGRES_PORT=5432
+ENV DB_POSTGRES_HOSTNAME=localhost
+ENV DB_POSTGRES_DATABASE=security_postgres
+ENV DB_POSTGRES_USERNAME=postgres
+ENV DB_POSTGRES_PASSWORD=2975
+
+WORKDIR /app
+
+COPY package*.json ./
+RUN yarn install
+
+COPY . .
+
+RUN ls -a
+
+EXPOSE 3333
+
+CMD yarn start

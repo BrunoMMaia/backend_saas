@@ -1,0 +1,14 @@
+.idea/
+.vscode/
+node_modules/
+coverage/
+dist/
+temp/
+.env
+.env.prod
+.env.dev
+.env.prod.old
+
+tmp/*
+!tmp/.gitkeep
+
